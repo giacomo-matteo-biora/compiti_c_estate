@@ -1,0 +1,45 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n, i, ore;
+    float incasso = 0.0;
+    int gratute_cont = 0;
+    int non_validi = 0;
+
+    printf("Inserisci numero auto: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Inserisci ore di sosta: ");
+        scanf("%d", &ore);
+
+        if (ore <= 0) {
+            printf("Valore non valido!\n");
+            non_validi++;
+        } else if (ore == 1) {
+            gratute_cont++;
+        } else if (ore <= 3) {
+            incasso = incasso + 2;
+        } else if (ore <= 6) {
+            incasso = incasso + 5;
+        } else {
+            incasso = incasso + 8;
+        }
+    }
+
+    printf("Incasso totale: %f euro\n", incasso);
+    printf("Soste gratuite: %d\n", gratute_cont);
+    printf("Valori non valido: %d\n", non_validi);
+
+    return 0;
+}

@@ -1,0 +1,50 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n= 0;
+    int i;
+    int eta=0;
+    char b;
+    char acc;
+    char vip;
+    int ok = 0;
+    int no = 0;
+    int err = 0;
+
+    printf("Numero spetatori: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Eta: ");
+        scanf("%d", &eta);
+        printf("Biglietto (S/N): ");
+        scanf(" %c", &b);
+        printf("Accompagnato (S/N): ");
+        scanf(" %c", &acc);
+        printf("Pass (S/N): ");
+        scanf(" %c", &vip);
+
+        if (eta < 7 || eta > 99) {
+            printf("Errore eta!\n");
+            err++;
+        } else if ((b == 'S' || vip == 'S') && (eta >= 16 || acc == 'S')) {
+            ok++;
+        } else {
+            no++;
+        }
+    }
+
+    printf("Ammessi: %d\nRespinti: %d\nErrati: %d\n", ok, no, err);
+
+    return 0;
+}

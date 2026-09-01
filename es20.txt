@@ -1,0 +1,65 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int cod=0;
+    int giac=0;
+    int soglia = 0;
+    int vendite = 0;
+    int riordina= 0; 
+    int urgenti = 0; 
+    int extra= 0;
+    int validi = 0;
+    int non_validi =0;
+
+    printf("Codice prodotto: ");
+    scanf("%d", &cod);
+
+    while (cod != 0) {
+        printf("Giacenza: ");
+        scanf("%d", &giac);
+        printf("Soglia: ");
+        scanf("%d", &soglia);
+        printf("Vendite: ");
+        scanf("%d", &vendite);
+
+        if (cod <= 0 || giac < 0 || soglia <= 0 || vendite < 0) {
+            printf("Scheda invalida\n");
+            non_validi++;
+        } else {
+            validi++;
+
+            if (giac < soglia && vendite > 0) {
+                riordina++;
+            }
+
+            if (giac == 0 || (giac < (float)soglia / 2 && vendite > 10)) {
+                urgenti++;
+            }
+
+            if (cod % 2 == 0) {
+                extra++;
+            }
+        }
+
+        printf("Codice prodotto: ");
+        scanf("%d", &cod);
+    }
+
+    printf("Prodotti riordinare: %d\n", riordina);
+    printf("Prodotti urg: %d\n", urgenti);
+    printf("Extra: %d\n", extra);
+    printf("Validi: %d\n", validi);
+    printf("Schede invalide: %d\n", non_validi);
+
+    return 0;
+}

@@ -1,0 +1,72 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n=0; 
+    int i;
+    float v1= 0.0;
+    float v2 = 0.0;
+    float v3 =0.0; 
+    float med = 0.0;
+    int qual = 0;
+    int medaglie = 0;
+    int wild =0;
+
+    printf("Numero atleti: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        printf("Voto 1: ");
+        scanf("%f", &v1);
+        while (v1 < 0 || v1 > 100) {
+            printf("Errato: ");
+            scanf("%f", &v1);
+        }
+
+        printf("Voto 2: ");
+        scanf("%f", &v2);
+        while (v2 < 0 || v2 > 100) {
+            printf("Errato: ");
+            scanf("%f", &v2);
+        }
+
+        printf("Voto 3: ");
+        scanf("%f", &v3);
+        while (v3 < 0 || v3 > 100) {
+            printf("Errato: ");
+            scanf("%f", &v3);
+        }
+        med = (v1 + v2 + v3) / 3.0;
+
+        int ha_w = 0;
+        if (i % 5 == 0) {
+            ha_w = 1;
+            wild++;
+        }
+        int e_qual = 0;
+
+        if (ha_w == 1 || (med >= 70 && v1 >= 50 && v2 >= 50 && v3 >= 50)) {
+            e_qual = 1;
+            qual++;
+        }
+
+        if (e_qual == 1) {
+            if (med >= 90 || (med >= 80 && v1 >= 75 && v2 >= 75 && v3 >= 75)) {
+                medaglie++;
+            }
+        }
+    }
+
+    printf("Qualificati: %d\nMedaglie: %d\nWildcard: %d\n", qual, medaglie, wild);
+
+    return 0;
+}

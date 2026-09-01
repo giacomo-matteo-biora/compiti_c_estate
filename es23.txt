@@ -1,0 +1,58 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int n=0;
+    int i;
+    float peso=0.0;
+    float valore = 0.0;
+    char dest[20];
+    char doc;
+    int ok = 0;
+    itn no = 0; 
+    int supp = 0;
+
+    printf("Numero pacchi: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Peso: ");
+        scanf("%f", &peso);
+        printf("Valore: ");
+        scanf("%f", &valore);
+
+        printf("Destinazione (nazionale/estero): ");
+        scanf("%s", dest);
+
+        while (strcmp(dest, "nazionale") != 0 && strcmp(dest, "estero") != 0) {
+            printf("Destinazione sbagliata: ");
+            scanf("%s", dest);
+        }
+
+        printf("Documenti (S/N): ");
+        scanf(" %c", &doc);
+
+        if (peso <= 30 && (strcmp(dest, "nazionale") == 0 || doc == 'S')) {
+            ok++;
+            if (strcmp(dest, "estero") == 0 && valore >= 1000) {
+                supp++;
+            }
+        } else {
+            no++;
+        }
+    }
+
+    printf("Accettati: %d\nRifiutati: %d\nSupplementi: %d\n", ok, no, supp);
+
+    return 0;
+}

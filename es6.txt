@@ -1,0 +1,44 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main() {
+    int n, i, voto;
+    int voti_insufficienti_cont = 0;
+    int voti_sufficienti_cont = 0;
+    int voti_buoni_cont = 0;
+    int voti_ottimi_cont = 0;
+
+    printf("Inserisci il numero di studenti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Inserisci voto: ");
+        scanf("%d", &voto);
+
+        if (voto < 1 || voto > 10) {
+            printf("Voto non valido!\n");
+        } else if (voto <= 5) {
+            voti_insufficienti_cont++;
+        } else if (voto == 6) {
+            voti_sufficienti_cont++;
+        } else if (voto <= 8) {
+            voti_buoni_cont++;
+        } else {
+            voti_ottimi_cont++;
+        }
+    }
+
+    printf("Insufficienti: %d\n", voti_insufficienti_cont);
+    printf("Sufficienti: %d\n", voti_sufficienti_cont);
+    printf("Buoni: %d\n", voti_buoni_cont);
+    printf("Ottimi: %d\n", voti_ottimi_cont);
+
+    return 0;
+}

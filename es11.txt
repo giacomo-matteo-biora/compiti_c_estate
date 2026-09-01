@@ -1,0 +1,43 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    int i;
+    int eta=0;
+    int patente=0;
+    float cauzione=0.0;
+    int idonei = 0;
+
+    printf("Inserisci numero clienti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Inserisci eta: ");
+        scanf("%d", &eta);
+        printf("Inserisci cauzione: ");
+        scanf("%f", &cauzione);
+        printf("Inserisci anni patente: ");
+        scanf("%d", &patente);
+
+        if (eta >= 21 && eta <= 75 && cauzione >= 500 && patente >= 2) {
+            printf("Cliente idoneo a noleggio\n");
+            idonei++;
+        } else {
+            printf("Cliente non idoneo\n");
+        }
+    }
+
+    printf("Totale clientp idonei: %d\n", idonei);
+
+    return 0;
+}

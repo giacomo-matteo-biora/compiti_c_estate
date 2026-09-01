@@ -1,0 +1,47 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n= 0;
+    int i;
+    float reddito= 0.0;
+    float media = 0.0;
+    int borse = 0;
+    int no_borse = 0;
+
+    printf("Quanti studenti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Reddito: ");
+        scanf("%f", &reddito);
+
+        printf("Media esami: ");
+        scanf("%f", &media);
+
+        while (media < 0 || media > 30) {
+            printf("Media errata: ");
+            scanf("%f", &media);
+        }
+
+        if ((media >= 27 && reddito < 20000) || media >= 29) {
+            borse++;
+        } else {
+            no_borse++;
+        }
+    }
+
+    printf("Assegnate: %d\n", borse);
+    printf("Non idonei: %d\n", no_borse);
+
+    return 0;
+}

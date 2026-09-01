@@ -1,0 +1,54 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int esp=0;
+    int ing=0;
+    char trasp;
+    int presi = 0;
+    int scarti = 0;
+
+    printf("Anni esperienza: ");
+    scanf("%d", &esp);
+
+    while (esp != -1) {
+        printf("Livello inglese: ");
+        scanf("%d", &ing);
+
+        while (ing < 1 || ing > 5) {
+            printf("Inglese non valido: ");
+            scanf("%d", &ing);
+        }
+
+        printf("Disponibile trasferta (S/N): ");
+        scanf(" %c", &trasp);
+
+        while (trasp != 'S' && trasp != 'N') {
+            printf("Scelta non valida: ");
+            scanf(" %c", &trasp);
+        }
+
+        if (esp >= 3 && (ing >= 4 || trasp == 'S')) {
+            presi++;
+        } else {
+            scarti++;
+        }
+
+        printf("Anni esperienza: ");
+        scanf("%d", &esp);
+    }
+
+    printf("Candidati presi: %d\n", presi);
+    printf("Candidati scartati: %d\n", scarti);
+
+    return 0;
+}

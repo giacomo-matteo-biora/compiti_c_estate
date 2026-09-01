@@ -1,0 +1,45 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n =0;
+    int i;
+    int mat=0;
+    int mattina = 0;
+    int pomeriggio= 0; 
+    int speciali = 0;
+
+    printf("Quanti dipendenti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Matricola: ");
+        scanf("%d", &mat);
+
+        while (mat <= 0) {
+            printf("Matricola errata: ");
+            scanf("%d", &mat);
+        }
+
+        if (mat % 5 == 0) {
+            speciali++;
+        } else if (mat % 2 == 0) {
+            mattina++;
+        } else {
+            pomeriggio++;
+        }
+    }
+
+    printf("Mattina: %d\nPomeriggio: %d\nSpeciali: %d\n", mattina, pomeriggio, speciali);
+
+    return 0;
+}

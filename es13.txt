@@ -1,0 +1,50 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n=0; 
+    int i;
+    float media= 0.0;
+    float presenze=0.0;
+    int ok = 0; 
+    int no = 0;
+    int riserva = 0;
+    int err = 0;
+
+    printf("Numero studenti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Media: ");
+        scanf("%f", &media);
+        printf("Presenze %%: ");
+        scanf("%f", &presenze);
+
+        if (media < 0 || media > 10 || presenze < 0 || presenze > 100) {
+            printf("Scheda scartata per errore!\n");
+            err++;
+        } else if (media >= 6 && presenze >= 75) {
+            ok++;
+        } else if (media < 5 || presenze < 50) {
+            no++;
+        } else {
+            riserva++;
+        }
+    }
+
+    printf("Ammessi: %d\n", ok);
+    printf("Non ammeszi: %d\n", no);
+    printf("Riserva: %d\n", riserva);
+    printf("Schede invalide: %d\n", err);
+
+    return 0;
+}

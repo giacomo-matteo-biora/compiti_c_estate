@@ -1,0 +1,39 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n =0;
+    int fortunati =0; 
+    int somma= 0;
+    int scarti = 0;
+
+    printf("Inserisci numero: ");
+    scanf("%d", &n);
+
+    while (n != 0) {
+        if (n < 1 || n > 90) {
+            scarti++;
+        } else if ((n % 3 == 0 || n % 7 == 0) && n % 5 != 0) {
+            fortunati++;
+            somma = somma + n;
+        }
+
+        printf("Inserisci numero: ");
+        scanf("%d", &n);
+    }
+
+    printf("Numeri fortunati: %d\n", fortunati);
+    printf("Somma: %d\n", somma);
+    printf("Scartati: %d\n", scarti);
+
+    return 0;
+}

@@ -1,0 +1,70 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char tipo[50];
+    float imp = 0;
+    float ent = 0;
+    float usc = 0;
+    float s = 0;
+    int fine = 0;
+
+    while (fine == 0) {
+        printf("Inserisci tipo (entrata, uscita o fine): ");
+        scanf("%s", tipo);
+
+        while (strcmp(tipo, "entrata") != 0 && strcmp(tipo, "uscita") != 0 && strcmp(tipo, "fine") != 0) {
+            printf("tipo non valido! Rinserisci: ");
+            scanf("%s", tipo);
+        }
+
+        if (strcmp(tipo, "fine") == 0) {
+            fine = 1;
+        } else {
+            printf("Inserisci l importo: ");
+            scanf("%f", &imp);
+
+            while (imp <= 0) {
+                printf("importo maggiore di zero: ");
+                scanf("%f", &imp);
+            }
+
+            if (strcmp(tipo, "entrata") == 0) {
+                ent = ent + imp;
+            }
+            
+            if (strcmp(tipo, "uscita") == 0) {
+                usc = usc + imp;
+            }
+        }
+    }
+
+    s = ent;
+    s = s - usc;
+
+    printf("Totale entrate: %f\n", ent);
+    printf("Totale uscite: %f\n", usc);
+    printf("Saldo: %f\n", s);
+
+    if (s > 0) {
+        printf("in attivo\n");
+    }
+    if (s == 0) {
+        printf("in pareggio\n");
+    }
+    if (s < 0) {
+        printf("in rosso\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,51 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    int i;
+    float importo=0.0;
+    char tessera;
+    int sconto = 0;
+    float tot_scontati = 0.0;
+
+    printf("Quanti clienti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Importo: ");
+        scanf("%f", &importo);
+
+        while (importo <= 0) {
+            printf("Errore importo: ");
+            scanf("%f", &importo);
+        }
+
+        printf("Ha la tessera (S/N)? ");
+        scanf(" %c", &tessera);
+
+        while (tessera != 'S' && tessera != 'N') {
+            printf("Errore risposta: ");
+            scanf(" %c", &tessera);
+        }
+
+        if ((importo > 100 && tessera == 'S') || importo > 200) {
+            sconto++;
+            tot_scontati = tot_scontati + importo;
+        }
+    }
+
+    printf("Sconti fatti: %d\n", sconto);
+    printf("Somma importi scontati: %f\n", tot_scontati);
+
+    return 0;
+}

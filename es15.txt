@@ -1,0 +1,61 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n=0;
+    int i;
+    int eta=0;
+    int qta=0;
+    float prezzo = 0.0; 
+    float tot=0.0;
+    float incasso =0.0;
+    int sconti_grp = 0;
+    int err = 0;
+
+    printf("Numero acquisti: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Eta: ");
+        scanf("%d", &eta);
+        printf("Numero biglietti: ");
+        scanf("%d", &qta);
+
+        if (eta < 0 || eta > 120 || qta < 1) {
+            printf("Dati invalidi\n");
+            err++;
+        } else {
+            if (eta < 6) {
+                prezzo = 0;
+            } else if (eta < 18 || eta > 65) {
+                prezzo = 5;
+            } else {
+                prezzo = 12;
+            }
+
+            tot = qta * prezzo;
+
+            if (qta >= 5) {
+                tot = tot * 0.90;
+                sconti_grp++;
+            }
+
+            incasso = incasso + tot;
+        }
+    }
+
+    printf("Tot: %.2f\n", incasso);
+    printf("Sconti: %d\n", sconti_grp);
+    printf("Acquisti errati: %d\n", err);
+
+    return 0;
+}

@@ -1,0 +1,62 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int n=0;
+    int i; 
+    int qta= 0;
+    float imp=0.0;
+    float imp_sconto =0.0;
+    float sped = 0.0; 
+    float tot_fatturato = 0.0;
+    int sped_gratis = 0;
+
+    printf("Inserisci ordini: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("Importo: ");
+        scanf("%f", &imp);
+        printf("Quantita: ");
+        scanf("%d", &qta);
+
+        if (imp <= 0 || qta <= 0) {
+            printf("Ordine invaliod\n");
+        } else {
+            if (imp < 30) {
+                imp_sconto = imp;
+            } else if (imp <= 70) {
+                imp_sconto = imp * 0.95;
+            } else {
+                imp_sconto = imp * 0.90;
+            }
+
+            if (qta % 10 == 0) {
+                imp_sconto = imp_sconto * 0.97;
+            }
+
+            if (imp_sconto >= 50 || qta >= 20) {
+                sped = 0;
+                sped_gratis++;
+            } else {
+                sped = 4.90;
+            }
+
+            tot_fatturato = tot_fatturato + imp_sconto + sped;
+        }
+    }
+
+    printf("Fatturato totale: %f\n", tot_fatturato);
+    printf("Ordini spedizione gratis: %d\n", sped_gratis);
+
+    return 0;
+}

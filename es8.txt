@@ -1,0 +1,46 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/** Jack Biora **/
+
+#include <stdio.h>
+
+int main() {
+    int eta;
+    int ragazzi = 0, 
+    juniores = 0, 
+    seniores = 0, 
+    masters = 0;
+
+    printf("Inserisci eta: ");
+    scanf("%d", &eta);
+
+    while (eta != 0) {
+        if (eta >= 6 && eta <= 99) {
+            if (eta <= 13) {
+                ragazzi++;
+            } else if (eta <= 17) {
+                juniores++;
+            } else if (eta <= 39) {
+                seniores++;
+            } else {
+                masters++;
+            }
+        }
+
+        printf("Inserisco eta: ");
+        scanf("%d", &eta);
+    }
+
+    printf("Ragazzi: %d\n", ragazzi);
+    printf("Juniores: %d\n", juniores);
+    printf("Seniores: %d\n", seniores);
+    printf("Masteras: %d\n", masters);
+
+    return 0;
+}

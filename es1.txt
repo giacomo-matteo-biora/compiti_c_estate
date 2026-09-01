@@ -1,0 +1,37 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main() {
+    int n=0;
+    int i=0;
+    float importo=0.0;
+    int clienti_target = 0;
+    int errori = 0;
+
+    printf("Inserisci numero clienti: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("Inserisci importo: ");
+        scanf("%f", &importo);
+
+        if(importo < 0) {
+            printf("Errore: importo non valido!\n");
+            errori++;
+        } else if(importo > 50) {
+            clienti_target++;
+        }
+    }
+
+    printf("Clienti che hanno speso piu di 50 euro: %d\n", clienti_target);
+    printf("Errori: %d\n", errori);
+
+    return 0;
+}
